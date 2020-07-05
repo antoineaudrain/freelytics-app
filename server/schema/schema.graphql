@@ -1,0 +1,57 @@
+enum ExerciseName {
+    PUSH_UPS
+    SQUATS
+    SIT_UPS
+    FLUTTER_KICKS
+    LEG_RAISES
+    PLANKS
+    PULL_UPS
+}
+
+type User {
+    email: String
+    firstName: String
+    lastName: String
+}
+
+input CreateUserInput {
+    firstName: String!
+    lastName: String!
+    email: String!
+    password: String!
+}
+
+input LoginInput {
+    email: String!
+    password: String!
+}
+
+type Exercise {
+    id: ID
+    exerciseName: ExerciseName!
+    startedAt: String!
+    endedAt: String!
+    qty: Int
+}
+
+input CreateExerciseInput {
+    exerciseName: ExerciseName!
+    startedAt: String!
+    endedAt: String!
+    qty: Int
+}
+
+type Query {
+    getUser: User @isAuthenticated @isAuthorized
+    getUserCurrExercises: [Exercise] @isAuthenticated @isAuthorized
+    getUserExercisesByName(exerciseName: ExerciseName!): [Exercise] @isAuthenticated @isAuthorized
+}
+
+type Mutation {
+    createUser(input: CreateUserInput!): User @isAuthorized
+    login(input: LoginInput!): String @isAuthorized
+    addExercise(input: CreateExerciseInput!): Exercise @isAuthenticated @isAuthorized
+}
+
+directive @isAuthenticated on FIELD_DEFINITION
+directive @isAuthorized on FIELD_DEFINITION

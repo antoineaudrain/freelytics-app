@@ -1,0 +1,6 @@
+export { default as addExercise } from './addExercise'
+export { default as getUserExercisesByName } from './getUserExercisesByName'
+export { default as getUserCurrExercises } from './getUserCurrExercises'
+export { default as getUser } from './getUser'
+export { default as createUser } from './createUser'
+export { default as login } from './login'

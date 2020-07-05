@@ -1,0 +1,5 @@
+export const SET_TOKEN = 'SET_TOKEN'
+export const LOGOUT = 'LOGOUT'
+export const RESTORE_TOKEN = 'RESTORE_TOKEN'
+export const ADD_SESSIONS = 'ADD_SESSIONS'
+export const SET_USER = 'SET_USER'
